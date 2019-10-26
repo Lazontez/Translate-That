@@ -1,0 +1,19 @@
+{
+  "name": "translate-that",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Lazontez/Translate-That.git"
+  },
+  "author": "godSpeed23",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Lazontez/Translate-That/issues"
+  },
+  "homepage": "https://github.com/Lazontez/Translate-That#readme"
+}
