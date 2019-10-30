@@ -15,5 +15,9 @@
   "bugs": {
     "url": "https://github.com/Lazontez/Translate-That/issues"
   },
-  "homepage": "https://github.com/Lazontez/Translate-That#readme"
+  "homepage": "https://github.com/Lazontez/Translate-That#readme",
+  "dependencies": {
+    "axios": "^0.19.0",
+    "express": "^4.17.1"
+  }
 }
