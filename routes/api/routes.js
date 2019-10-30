@@ -1,7 +1,7 @@
 console.log("routes.js");
 const router = require("express").Router();
 const axios = require("axios");
-require("dotenv");
+require("dotenv").config();
 
 
 
@@ -12,7 +12,7 @@ router.route("/api/translate").post((req, res) => {
         const text = req.body.text
         const changeTo = req.body.convertTo
         console.log({"Text":req.body.text})
-        axios.get("https://translate.yandex.net/api/v1.5/tr.json/detect?key=trnsl.1.1.20191030T143949Z.8b963a0eedce0e26.b0a0e9f9a8083d1350574e6316e93a8c10ff7af7&text=this is the text")
+        axios.get("https://translate.yandex.net/api/v1.5/tr.json/detect?key="+process.env.APIKEY+"&text="+text)
             .then((result) => {
                 if (result.data.code === 200) {
                     const detectedLang = result.data.lang
@@ -46,7 +46,7 @@ router.route("/api/translate").post((req, res) => {
 });
 
 const translateText = (lang,convertTo,text, cb)=>{
-    axios.get("https://translate.yandex.net/api/v1.5/tr.json/translate?key=trnsl.1.1.20191030T143949Z.8b963a0eedce0e26.b0a0e9f9a8083d1350574e6316e93a8c10ff7af7&text="+text+"&lang="+lang+"-"+convertTo).then(data=>{
+    axios.get("https://translate.yandex.net/api/v1.5/tr.json/translate?key="+process.env.APIKEY+"&text="+text+"&lang="+lang+"-"+convertTo).then(data=>{
             return cb(data.data.text[0])
             console.log({"Translation":data.data.text[0]})
     })
