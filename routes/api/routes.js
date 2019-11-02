@@ -45,10 +45,10 @@ router.route("/api/translate").post((req, res) => {
     }
 });
 
-const translateText = (lang,convertTo,text, cb)=>{
+const translateText = (lang,convertTo,text,cb)=>{
     axios.get("https://translate.yandex.net/api/v1.5/tr.json/translate?key="+process.env.APIKEY+"&text="+text+"&lang="+lang+"-"+convertTo).then(data=>{
-            return cb(data.data.text[0])
             console.log({"Translation":data.data.text[0]})
+            return cb(data.data.text[0])
     })
 }
 
