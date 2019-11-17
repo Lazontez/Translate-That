@@ -1,14 +1,11 @@
 import React from 'react';
-import logo from './logo.svg';
+import TranslationField from "./content/translationField"
 import './App.css';
 
 function App() {
   return (
     <div className="App">
-      <div >
-        <input className="translate-typeIn" type="text" placeholder="type text here">
-        </input>
-      </div>
+      <TranslationField></TranslationField>
     </div>
   );
 }
