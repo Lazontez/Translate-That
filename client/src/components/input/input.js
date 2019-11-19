@@ -1,12 +1,15 @@
-import React from 'react';
-import inputCss from "../../css/main/input.css"
+import React, { Component } from 'react';
 
-function Input() {
-  return (
-    <div  style={inputCss} className="Input">
-        <h1>TRANSLATE BOX</h1>
-    </div>
-  );
+class Input extends Component {
+  render() {
+    return (
+      <span  className="Input">
+        <h1>X</h1>
+      </span>
+
+    )
+  }
+  ;
 }
 
 export default Input;

@@ -1,3 +1,9 @@
 .Input{
     background: red;
+
+    /* width: 25%; */
+}
+textarea{
+    resize: none;
+    overflow: hidden;
 }
