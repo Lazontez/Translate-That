@@ -1,8 +1,28 @@
 .Input{
-    background: red;
+    background: white;
 
     /* width: 25%; */
 }
 textarea{
     resize: none;
+    border: none;
+}
+.mainContent{
+    border: 1px solid grey;
+    border-radius: 10px;
+    box-shadow: 1px 1px 1px 1px grey;
+}
+.responseField{
+    border-left: 1px solid grey;
+}
+.inputField{
+    border-right: 1px solid grey;
+}
+.translationFieldHeadBox{
+    background :  white;
+    width : 100% ;
+    padding : 10px;
+}
+.field{
+    border-top: 1px solid grey;
 }

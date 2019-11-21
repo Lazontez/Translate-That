@@ -3,9 +3,10 @@ import React, { Component } from 'react';
 class Input extends Component {
   render() {
     return (
-      <span  className="Input">
-        <h1>X</h1>
-      </span>
+      <div class="form-group">
+        <label for="exampleFormControlTextarea1"></label>
+        <textarea class="form-control" id="exampleFormControlTextarea1" style={{ "fontSize": "25px", "color": "black", "border": "none" }} autoComplete="off" placeholder="Enter Text Here" title="EnterText" rows="3"></textarea>
+      </div>
 
     )
   }
