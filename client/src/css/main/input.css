@@ -1,12 +1,10 @@
 .Input{
     background: white;
-
+    
     /* width: 25%; */
 }
-textarea{
-    resize: none;
-    border: none;
-}
+
+
 .mainContent{
     border: 1px solid grey;
     border-radius: 10px;
@@ -22,6 +20,7 @@ textarea{
     background :  white;
     width : 100% ;
     padding : 10px;
+    font-size: small;
 }
 .field{
     border-top: 1px solid grey;

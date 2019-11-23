@@ -1,0 +1,5 @@
+textarea[id="inputField"]:focus{
+    border: none;
+    outline-color:none;
+    box-shadow: none;
+}
