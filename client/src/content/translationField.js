@@ -1,19 +1,29 @@
 import React from 'react';
 import inputCss from "../css/main/input.css"
 import inputFieldCSS from "../css/main/inputField.css"
+const axios = require("axios")
 
 
 
 class TranslationField extends React.Component {
 
   state = {
-    inputField: null
+    inputField: null 
   }
 
-  handleInoutChange = (event) => {
+  handleInputChange = (event) => {
     event.preventDefault();
-    this.setState({ inputField: event.target.value }, console.log(inputField))
+    this.setState({ inputField: event.target.value }, this.makeTranslation(this.state.inputField));
 
+
+  }
+  makeTranslation = (word)=>{
+    if(word === null || word === undefined ){
+      console.log("word inputed was defined as "+word)
+    }
+    else{
+      console.log(word)
+    }
   }
   render() {
     return (
@@ -28,7 +38,7 @@ class TranslationField extends React.Component {
             <div className="col-xs-2 col-md-6 inputField" style={{ "marginRight": "0px" }}>
               <div class="form-group" style={inputFieldCSS}>
                 <label ></label>
-                <textarea onChange={this.handleInoutChange} class="form-control" id="inputField" style={{ "fontSize": "25px", "color": "black", "border": "none" }} autoComplete="off" title="Enter or Paste Text To Be Translated" rows="3"></textarea>
+                <textarea onChange={this.handleInputChange} className="form-control" id="inputField" style={{ "fontSize": "25px", "color": "black", "border": "none" , "height":"150px" }} autoComplete="off" title="Enter or Paste Text To Be Translated" rows="3"></textarea>
               </div>
             </div>
             <div className="col-xs-4 col-md-6 responseField" style={{ "marginRight": "0px", "background": "white" }}>

@@ -1,11 +1,12 @@
 import React from 'react';
-import TranslationField from "./content/translationField"
+import TranslationPage from "./pages/translationPage"
+
 import './App.css';
 
 function App() {
   return (
     <div className="App">
-      <TranslationField></TranslationField>
+      <TranslationPage></TranslationPage>
     </div>
   );
 }
