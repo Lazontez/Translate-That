@@ -31,8 +31,8 @@ class TranslationField extends React.Component {
       axios.post("/api/translate", data)
         .then(res => {
           this.setState({
-            detectedLanguage: res.data.detectedLanguage,
-            translatedText: res.data.Translation
+            detectedLanguage: res.data.Translation,
+            translatedText: res.data.Translation.output
           } , console.log(this.state))
           console.log(res.data)
         })
