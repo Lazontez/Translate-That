@@ -10,7 +10,8 @@ class TranslationField extends React.Component {
   state = {
     inputField: null,
     detectedLanguage: null,
-    translatedText: null
+    translatedText: null,
+    convertTo:null
   }
 
   handleInputChange = (event) => {
@@ -37,6 +38,7 @@ class TranslationField extends React.Component {
           console.log(res.data)
         })
     }
+    
   }
   render() {
     return (

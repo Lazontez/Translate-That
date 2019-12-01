@@ -7,23 +7,23 @@ require("dotenv").config();
 
 router.route("/api/translate").post((req, res) => {
     console.log("Translate that homie.")
-    
+
     if (req.body.text && req.body.convertTo) {
         const text = req.body.text
         const changeTo = req.body.convertTo
-        console.log({"Text":req.body.text})
-        axios.get("https://translate.yandex.net/api/v1.5/tr.json/detect?key="+process.env.APIKEY+"&text="+text)
+        console.log({ "Text": req.body.text })
+        axios.get("https://translate.yandex.net/api/v1.5/tr.json/detect?key=" + process.env.APIKEY + "&text=" + text)
             .then((result) => {
                 if (result.data.code === 200) {
                     const detectedLang = result.data.lang
-                    translateText(detectedLang,changeTo,text,(response)=>{
-                        res.json({"Translation":response})
+                    translateText(detectedLang, changeTo, text, (response) => {
+                        res.json({ "Translation": response })
                         console.log(response)
                     });
                 }
-                else if(result.data.code !== 200){
+                else if (result.data.code !== 200) {
                     res.json({
-                        "Error":"Api Call Status Code Was Not 200" ,
+                        "Error": "Api Call Status Code Was Not 200",
                         "Error-Code": result.data.code
                     });
                 }
@@ -45,12 +45,20 @@ router.route("/api/translate").post((req, res) => {
     }
 });
 
-const translateText = (lang,convertTo,text,cb)=>{
-    
-    axios.get("https://translate.yandex.net/api/v1.5/tr.json/translate?key="+process.env.APIKEY+"&text="+text+"&lang="+lang+"-"+convertTo).then(data=>{
-            console.log({"Translation" : data.data.text[0]})
-            
-            return cb(data.data.text[0])
+const translateText = (lang, convertTo, text, cb) => {
+
+    axios.get("https://translate.yandex.net/api/v1.5/tr.json/translate?key=" + process.env.APIKEY + "&text=" + text + "&lang=" + lang + "-" + convertTo).then(data => {
+        console.log({ "Translation": data.data.text[0] })
+        const translationData = {
+            detectedLanguage: lang,
+            convertedLanguage: convertTo,
+            input: text,
+            output: data.data.text[0]
+
+
+        }
+
+        return cb(translationData)
     })
 }
 
