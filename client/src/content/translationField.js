@@ -9,9 +9,9 @@ class TranslationField extends React.Component {
 
   state = {
     inputField: null,
-    detectedLanguage: null,
+    detectedLanguage: "not known",
     translatedText: null,
-    convertTo:null
+    convertTo: null
   }
 
   handleInputChange = (event) => {
@@ -32,22 +32,28 @@ class TranslationField extends React.Component {
       axios.post("/api/translate", data)
         .then(res => {
           this.setState({
-            detectedLanguage: res.data.Translation,
+            detectedLanguage: res.data.Translation.detectedLanguage,
             translatedText: res.data.Translation.output
-          } , console.log(this.state))
+          }, console.log(this.state))
           console.log(res.data)
         })
     }
-    
+
   }
   render() {
+    const translatedTextCSS = {
+      "-webkit-user-select": "none",
+      "-moz-user-select": "none",
+      "-ms-user-select": "none",
+      "user-select": "none"
+    }
     return (
       <div style={inputCss} className="TranslationField">
         <div className="container mainContent">
           <div>
             <div className="row translationFieldHeadBox">
-              DETECTED LANGUAGE
-          </div>
+              Your Detected Language is <div style={{ "color": "orange", "marginLeft": "2px" }}>  {" " + this.state.detectedLanguage}</div>
+            </div>
           </div>
           <div className="row field" >
             <div className="col-xs-2 col-md-6 inputField" style={{ "marginRight": "0px" }}>
@@ -57,6 +63,14 @@ class TranslationField extends React.Component {
               </div>
             </div>
             <div className="col-xs-4 col-md-6 responseField" style={{ "marginRight": "0px", "background": "white" }}>
+              <div className="col-xs-2 col-md-6 inputField" style={{ "marginRight": "0px" }}>
+                <div class="form-group" >
+                  <label ></label>
+                  <textarea style={translatedTextCSS} onChange={this.handleInputChange} className="form-control" style={{ "fontSize": "25px", "color": "black", "border": "none", "height": "150px" }} autoComplete="off" title="Enter or Paste Text To Be Translated" rows="3">
+                    {this.state.translatedText}
+                  </textarea>
+                </div>
+              </div>
             </div>
           </div>
         </div>
