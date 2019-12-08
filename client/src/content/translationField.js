@@ -63,13 +63,9 @@ class TranslationField extends React.Component {
               </div>
             </div>
             <div className="col-xs-4 col-md-6 responseField" style={{ "marginRight": "0px", "background": "white" }}>
-              <div className="col-xs-2 col-md-6 inputField" style={{ "marginRight": "0px" }}>
-                <div class="form-group" >
-                  <label ></label>
-                  <textarea style={translatedTextCSS} onChange={this.handleInputChange} className="form-control" style={{ "fontSize": "25px", "color": "black", "border": "none", "height": "150px" }} autoComplete="off" title="Enter or Paste Text To Be Translated" rows="3">
-                    {this.state.translatedText}
-                  </textarea>
-                </div>
+              <div className="col-xs-2 col-md-6 " style={{ "marginRight": "0px" }}>
+              {this.state.translatedText}
+
               </div>
             </div>
           </div>
