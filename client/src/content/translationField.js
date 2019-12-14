@@ -16,7 +16,7 @@ class TranslationField extends React.Component {
 
   handleInputChange = (event) => {
     event.preventDefault();
-    this.setState({ inputField: event.target.value }, this.makeTranslation(this.state.inputField));
+    this.setState({ inputField: event.target.value });
 
 
   }
@@ -62,6 +62,9 @@ class TranslationField extends React.Component {
                 <textarea onChange={this.handleInputChange} className="form-control" id="inputField" style={{ "fontSize": "25px", "color": "black", "border": "none", "height": "150px" }} autoComplete="off" title="Enter or Paste Text To Be Translated" rows="3"></textarea>
               </div>
             </div>
+            <span>
+              <button onClick={this.makeTranslation}>Translate That</button>
+            </span>
             <div className="col-xs-4 col-md-6 responseField" style={{ "marginRight": "0px", "background": "white" }}>
               <div className="col-xs-2 col-md-6 " style={{ "marginRight": "0px" }}>
               {this.state.translatedText}
