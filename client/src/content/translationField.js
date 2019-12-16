@@ -35,7 +35,7 @@ class TranslationField extends React.Component {
             detectedLanguage: res.data.Translation.detectedLanguage,
             translatedText: res.data.Translation.output
           }, console.log(this.state))
-          console.log(res.data)
+          console.log("Data: "+res.data)
         })
     }
 
